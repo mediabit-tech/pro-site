@@ -1,0 +1,27 @@
+/* .custom-container {
+  flex-direction: row;
+  height: 70vh;
+}
+
+.custom-scrollbar {
+  flex: 1;
+  overflow-y: scroll;
+} */
+
+.custom-css h1 {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 1rem auto;
+}
+
+.custom-css input {
+  font-size: 1.5rem;
+}
+
+.custom-css textarea {
+  font-size: 1.5rem;
+}
+
+.custom-css select {
+  font-size: 1.5rem;
+}
