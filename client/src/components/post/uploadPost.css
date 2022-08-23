@@ -1,12 +1,7 @@
-/* .custom-container {
+.custom-container {
   flex-direction: row;
-  height: 70vh;
+  height: 75vh;
 }
-
-.custom-scrollbar {
-  flex: 1;
-  overflow-y: scroll;
-} */
 
 .custom-css h1 {
   font-size: 2rem;

@@ -27,10 +27,6 @@ const Header = () => {
                         {/* main header right side */}
                         <div className="col-12 col-lg-6 header-right-side d-flex justify-content-center align-items-center main-herosection-images">
                             <img src="./images/sample-prev.png" alt="heroimg" className='img-fluid' loading='lazy' />
-                            {/* <iframe className='img-fluid main-hero-vid' loading="lazy"
-                                src="https://www.youtube.com/embed/UDZZylgw-9k?controls=0">
-                            </iframe> */}
-                            {/* <img src="./images/srcheaderthree.jpg" alt="heroimg" className='img-fluid main-hero-img2' /> */}
                         </div>
                     </div>
                     {/* Arrow styling */}

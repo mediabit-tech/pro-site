@@ -43,12 +43,12 @@ router.post('/signup', async (req, res) => {
 router.post('/signin', async (req, res) => {
     try {
         let token;
-        const { email, password } = req.body;
-        if (!email || !password) {
+        const { username, password } = req.body;
+        if (!username || !password) {
             return res.status(400).json({ error: "Please fill the credentials!" });
         }
         // compare the credentials
-        const userLogin = await User.findOne({ email });
+        const userLogin = await User.findOne({ username });
         if (userLogin) {
             const isMatch = await bcrypt.compare(password, userLogin.password);
             // jwt varification using anonymus function

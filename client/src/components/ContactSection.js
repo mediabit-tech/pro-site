@@ -3,6 +3,7 @@ import contactImg from "../internalImgs/contact-us.png"
 import emailjs from '@emailjs/browser';
 import { useNavigate } from 'react-router-dom';
 import { NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 const ContactSection = () => {
 
