@@ -5,12 +5,19 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    subTitle: {
+        type: String,
+    },
     message: [
         {
             type: String,
             required: true
         }
     ],
+    codingSnippet: {
+        type: String,
+        required: true
+    },
     category: [
         {
             type: String,

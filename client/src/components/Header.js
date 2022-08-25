@@ -8,7 +8,7 @@ const Header = () => {
     const navigate = useNavigate();
     
     function routeChange () {
-        navigate("/about");
+        navigate("/");
     };
 
     return (

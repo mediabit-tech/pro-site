@@ -5,7 +5,6 @@ const app = express();
 
 dotenv.config({ path: './config.env' });
 require('./db/connection');
-// const User = require('./models/userSchema');
 
 // middleware for understand the input info of user to application in json format
 app.use(express.json());

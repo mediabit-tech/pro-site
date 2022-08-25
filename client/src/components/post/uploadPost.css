@@ -1,6 +1,7 @@
 .custom-container {
-  flex-direction: row;
-  height: 75vh;
+  /* flex-direction: row;
+  height: 100vh; */
+  padding: 0 1rem;
 }
 
 .custom-css h1 {
@@ -19,4 +20,23 @@
 
 .custom-css select {
   font-size: 1.5rem;
+}
+
+
+.custom-css .btn-style {
+  margin: auto !important;
+  width: 50%;
+}
+
+
+@media screen and (min-width: 600px) {
+
+  .custom-container {
+    padding: 0 2rem;
+  }
+  
+  .col-4 .col-8 {
+    width: 100%;
+  }
+
 }

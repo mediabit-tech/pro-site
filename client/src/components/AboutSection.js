@@ -1,16 +1,10 @@
 import React, { useState } from 'react'
 import sample from "../internalImgs/8.png"
 import whyChooseUs from "../API/WhyChooseUs"
-import { useNavigate } from 'react-router-dom'
 
 const AboutSection = () => {
 
     const [aboutData, setAboutData] = useState(whyChooseUs);
-    const navigate = useNavigate();
-    
-    function routeChange () {
-        navigate("/about");
-    };
 
     return (
         <>
