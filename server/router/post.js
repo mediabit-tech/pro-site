@@ -11,9 +11,9 @@ router.get('/', (req, res) => {
 // submit post route
 router.post('/submitpost', async (req, res) => {
     // get info from body
-    const { title, subTitle, message, codingSnippet, category, tag, mode, askingCompany, askingYear } = req.body;
+    const { title, subTitle, message, codingSnippet, optionalMessage, category, tag, mode, askingCompany, askingYear } = req.body;
     // validation
-    if (!title || !subTitle || !message || !codingSnippet || !category || !tag ||!mode || !askingCompany || !askingYear) {
+    if (!title || !message || !codingSnippet || !category || !tag ||!mode || !askingCompany || !askingYear) {
         return res.status(422).json({ error: "Fill the input filed properly!" });
     }
 
@@ -25,7 +25,7 @@ router.post('/submitpost', async (req, res) => {
             return res.status(422).json({ error: "Post already exists. Duplicacy is not allowed!" });
         } else {
             // If not already exists then store all info into a variable
-            const post = new Post({ title, subTitle, message, codingSnippet, category, tag, mode, askingCompany, askingYear });
+            const post = new Post({ title, subTitle, message, codingSnippet, optionalMessage, category, tag, mode, askingCompany, askingYear });
             // write a function for hashing the password before call save() method
             await post.save();
             res.status(201).json({ message: "New post successfully uploaded!" });

@@ -1,14 +1,10 @@
-const jwt = require('jsonwebtoken');
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
+const authenticate = require('../middleware/authenticate');
 
 require('../db/connection');
 const User = require('../models/userSchema');
-
-router.get('/', (req, res) => {
-    res.send("This is home from auth.js!");
-});
 
 // signup route
 router.post('/signup', async (req, res) => {
@@ -70,5 +66,17 @@ router.post('/signin', async (req, res) => {
         console.log(err);
     }
 });
+
+// upload-post route
+// sample of middleware for checking authentication
+router.get('/upload-post', authenticate, (req, res) => {
+    res.send(req.rootUser);
+});
+
+// logout route
+router.get('/logout', (req, res) => {
+    res.clearCookie('jwtoken', { path: '/' });
+    res.status(200).send('User logout!');
+})
 
 module.exports = router;

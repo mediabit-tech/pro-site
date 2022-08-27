@@ -18,6 +18,9 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    optionalMessage: {
+        type: String,
+    },
     category: [
         {
             type: String,

@@ -9,6 +9,7 @@ import Home from './Home';
 import Signin from './components/auth/signin';
 import ErrorPage from './components/auth/error404';
 import UploadPost from './components/post/uploadPost';
+import Logout from './components/logout';
 
 const App = () => {
   return (
@@ -20,8 +21,9 @@ const App = () => {
           <Route exact path='/' element={<Home />} />
           <Route exact path='/admin-signin' element={<Signin />} />
           <Route exact path='/upload-post' element={<UploadPost />} />
+          <Route exact path='/logout' element={<Logout />} />
 
-          <Route path='/error' element={<ErrorPage />} />
+          <Route element={<ErrorPage />} />
         </Routes>
         <NotificationContainer />
         <Footer />

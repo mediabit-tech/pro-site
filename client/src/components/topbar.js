@@ -10,6 +10,11 @@ const Topbar = () => {
         navigate('/admin-signin');
     }
 
+    function clickOnLogoutPanel(e) {
+        e.preventDefault();
+        navigate('/logout');
+    }
+
     return (
         <>
             <section className='topbar-bg'>
@@ -28,7 +33,12 @@ const Topbar = () => {
 
                         <div>
                             <ul className="navbar-nav">
-                                <a aria-current="page" href="/admin-signin" onClick={clickOnAdminPanel}><i class="fa-solid fa-gears"></i> Admin Panel </a>
+                                <a aria-current="page" href="/admin-signin" onClick={clickOnAdminPanel}><i class="fa-solid fa-gear"></i> Admin </a>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul className="navbar-nav">
+                                <a aria-current="page" href="/logout" onClick={clickOnLogoutPanel}><i class="fa-solid fa-arrow-right-from-bracket"></i> </a>
                             </ul>
                         </div>
                     </div>

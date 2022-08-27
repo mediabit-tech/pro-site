@@ -1,10 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './uploadPost.css';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 const UploadPost = () => {
+    const navigate = useNavigate();
+    // we can't use async function inside the useEffect hooks so that's why i'm define callUploadPostPage() function the outside of the useEffect hooks 
+    const callUploadPostPage = async () => {
+        try {
+            const res = await fetch('/upload-post', {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include'
+            });
+            await res.json();
+            // assurity
+            if (res.status != 200) {
+                const error = new Error(res.error);
+                throw error;
+            }
+        } catch (err) {
+            console.log(err);
+            navigate('/admin-signin');
+        }
+    }
+
+    useEffect(() => {
+        callUploadPostPage();
+    }, [callUploadPostPage]);
+
+    // create new post
     const [post, setPost] = useState({
-        title: "", subTitle: "", message: "", codingSnippet: "", category: "", tag: "", mode: "", askingCompany: "", askingYear: ""
+        title: "", subTitle: "", message: "", codingSnippet: "", optionalMessage: "", category: "", tag: "", mode: "", askingCompany: "", askingYear: ""
     });
 
     let name, value;
@@ -17,14 +47,14 @@ const UploadPost = () => {
 
     const sendDataOnBackend = async (e) => {
         e.preventDefault();
-        const { title, subTitle, message, codingSnippet, category, tag, mode, askingCompany, askingYear } = post;
+        const { title, subTitle, message, codingSnippet, optionalMessage, category, tag, mode, askingCompany, askingYear } = post;
 
-        const res = await fetch('/api/v1/submitpost', {
+        const res = await fetch('/submitpost', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ title, subTitle, message, codingSnippet, category, tag, mode, askingCompany, askingYear })
+            body: JSON.stringify({ title, subTitle, message, codingSnippet, optionalMessage, category, tag, mode, askingCompany, askingYear })
         });
 
         const data = await res.json();
@@ -44,11 +74,13 @@ const UploadPost = () => {
                         <div className="col-4">
                             <div className="row">
                                 <h1>Your All Posts</h1>
-                                <Scrollbars style={{ width: 300, height: 300 }} >
-                                    <div className="mt-3 mb-3">
-                                        <h4>This is displaying area.</h4>
-                                    </div>
-                                </Scrollbars>
+                                <form method='GET'>
+                                    <Scrollbars style={{ width: 300, height: 300 }} >
+                                        <div className="mt-3 mb-3">
+                                            <h4>This is displaying area.</h4>
+                                        </div>
+                                    </Scrollbars>
+                                </form>
                             </div>
                         </div>
 
@@ -72,6 +104,10 @@ const UploadPost = () => {
                                     {/* coding snippet tag */}
                                     <div className="mb-3">
                                         <textarea className="form-control" rows="8" placeholder='Enter coding snippet' value={post.codingSnippet} name='codingSnippet' onChange={handleInputes} required ></textarea>
+                                    </div>
+                                    {/* optional message tag */}
+                                    <div className="mb-3">
+                                        <textarea className="form-control" rows="3" placeholder='Enter optional message' value={post.optionalMessage} name='optionalMessage' onChange={handleInputes} ></textarea>
                                     </div>
                                     <div className="row">
                                         {/* category tag */}
