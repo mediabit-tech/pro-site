@@ -6,44 +6,38 @@ const postSchema = new mongoose.Schema({
         required: true
     },
     subTitle: {
-        type: String,
+        type: String
     },
-    message: [
-        {
-            type: String,
-            required: true
-        }
-    ],
+    message: [{
+        type: String
+    }],
+    inputOptionalMessage: [{
+        type: String
+    }],
     codingSnippet: {
-        type: String,
-        required: true
+        type: String
     },
-    optionalMessage: {
-        type: String,
-    },
+    outputOptionalMessage: [{
+        type: String
+    }],
     category: [
         {
             type: String,
             required: true
         }
     ],
-    tag: [
-        {
-            type: String,
-            required: true
-        }
-    ],
+    tag: [{
+        type: String
+    }],
     mode: {
         type: String,
         required: true
     },
     askingCompany: {
-        type: String,
-        required: true
+        type: String
     },
     askingYear: {
-        type: Number,
-        required: true
+        type: Number
     },
     createdAt: {
         type: Date,

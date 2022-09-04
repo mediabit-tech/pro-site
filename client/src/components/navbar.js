@@ -8,6 +8,16 @@ const Navbar = () => {
     const [navBtnShowHide, setNavBtnShowHide] = useState(false);
     const navigate = useNavigate();
 
+    function clickOnHomepage(e) {
+        e.preventDefault();
+        navigate('/');
+    };
+
+    function clickOnPracticeTutorial(e) {
+        e.preventDefault();
+        navigate('/practice-tutorial');
+    };
+
     return (
         <>
             <section className='navbar-bg'>
@@ -23,13 +33,10 @@ const Navbar = () => {
                         <div className={`collapse navbar-collapse ${navBtnShowHide ? "show" : ""}`} >
                             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
-                                    <a className="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-house"></i> Homepage </a>
+                                    <a className="nav-link active" aria-current="page" onClick={clickOnHomepage}><i class="fa-solid fa-house"></i> Homepage </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><i class="fa-solid fa-book-open"></i> Practice Tutorial </a>
-                                </li>
-                                <li className="nav-item">
-                                    {/* <a className="nav-link" href="#"></a> */}
+                                    <a className="nav-link" onClick={clickOnPracticeTutorial}><i class="fa-solid fa-book-open"></i> Practice Tutorial </a>
                                 </li>
                             </ul>
                         </div>

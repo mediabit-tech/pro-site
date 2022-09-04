@@ -6,10 +6,12 @@ import Topbar from './components/topbar';
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
 import Home from './Home';
+import PracticeTutorial from './PracticeTutorial';
 import Signin from './components/auth/signin';
 import ErrorPage from './components/auth/error404';
 import UploadPost from './components/post/uploadPost';
 import Logout from './components/logout';
+import FetchPost from './components/post/fetchPost';
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
           <Route exact path='/admin-signin' element={<Signin />} />
           <Route exact path='/upload-post' element={<UploadPost />} />
           <Route exact path='/logout' element={<Logout />} />
+          <Route exact path='/practice-tutorial' element={<PracticeTutorial />} />
+          <Route exact path='/practice-tutorial/:id' element={<FetchPost />} />
 
           <Route element={<ErrorPage />} />
         </Routes>

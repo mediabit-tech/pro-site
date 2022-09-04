@@ -109,6 +109,7 @@ h6 {
   color: var(--primary-color) !important;
   /* text-shadow: 0 0.2rem 0.3rem rgba(148, 0, 211, 0.5); */
   color: var(--primary-color);
+  cursor: pointer;
 }
 
 .navbar-nav button {
@@ -216,7 +217,7 @@ header {
 
 .main-herosection-images img {
   width: 100%;
-  height: 60%;
+  height: 90%;
   margin: 0 -10rem;
   position: absolute;
 }
@@ -424,6 +425,14 @@ input[type="number"] {
   text-align: center;
   padding: 1rem 0;
 }
+
+
+
+/* --------------------------------- practice-tutorial css design start here  
+                        -------------------------------------------------------*/
+
+
+
 
 /* --------------------------------- responsive media queries  
                         -------------------------------------------------------*/

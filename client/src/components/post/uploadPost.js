@@ -34,7 +34,7 @@ const UploadPost = () => {
 
     // create new post
     const [post, setPost] = useState({
-        title: "", subTitle: "", message: "", codingSnippet: "", optionalMessage: "", category: "", tag: "", mode: "", askingCompany: "", askingYear: ""
+        title: "", subTitle: "", message: "", inputOptionalMessage: "", codingSnippet: "", outputOptionalMessage: "", category: "", tag: "", mode: "", askingCompany: "", askingYear: ""
     });
 
     let name, value;
@@ -47,14 +47,14 @@ const UploadPost = () => {
 
     const sendDataOnBackend = async (e) => {
         e.preventDefault();
-        const { title, subTitle, message, codingSnippet, optionalMessage, category, tag, mode, askingCompany, askingYear } = post;
+        const { title, subTitle, message, inputOptionalMessage, codingSnippet, outputOptionalMessage, category, tag, mode, askingCompany, askingYear } = post;
 
         const res = await fetch('/submitpost', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ title, subTitle, message, codingSnippet, optionalMessage, category, tag, mode, askingCompany, askingYear })
+            body: JSON.stringify({ title, subTitle, message, inputOptionalMessage, codingSnippet, outputOptionalMessage, category, tag, mode, askingCompany, askingYear })
         });
 
         const data = await res.json();
@@ -99,50 +99,51 @@ const UploadPost = () => {
                                     </div>
                                     {/* message tag */}
                                     <div className="mb-3">
-                                        <textarea className="form-control" rows="8" placeholder='Enter message' value={post.message} name='message' onChange={handleInputes} required ></textarea>
+                                        <textarea className="form-control" rows="8" placeholder='Enter message' value={post.message} name='message' onChange={handleInputes} ></textarea>
+                                    </div>
+                                    {/* inputOptionalMessage tag */}
+                                    <div className="mb-3">
+                                        <textarea className="form-control" rows="8" placeholder='Enter Inputs' value={post.inputOptionalMessage} name='inputOptionalMessage' onChange={handleInputes} ></textarea>
                                     </div>
                                     {/* coding snippet tag */}
                                     <div className="mb-3">
-                                        <textarea className="form-control" rows="8" placeholder='Enter coding snippet' value={post.codingSnippet} name='codingSnippet' onChange={handleInputes} required ></textarea>
+                                        <textarea className="form-control" rows="8" placeholder='Enter coding snippet' value={post.codingSnippet} name='codingSnippet' onChange={handleInputes} ></textarea>
                                     </div>
-                                    {/* optional message tag */}
+                                    {/* outputOptionalMessage tag */}
                                     <div className="mb-3">
-                                        <textarea className="form-control" rows="3" placeholder='Enter optional message' value={post.optionalMessage} name='optionalMessage' onChange={handleInputes} ></textarea>
+                                        <textarea className="form-control" rows="3" placeholder='Enter optional message' value={post.outputOptionalMessage} name='outputOptionalMessage' onChange={handleInputes} ></textarea>
                                     </div>
                                     <div className="row">
                                         {/* category tag */}
                                         <div className="col">
                                             <div className="mb-3">
-                                                <input type="text" className="form-control" placeholder="Enter category" value={post.category} name='category' onChange={handleInputes} required />
+                                                <input type="text" className="form-control" placeholder="Enter category" value={post.category} name='category' onChange={handleInputes} />
                                             </div>
                                         </div>
                                         {/* #tag */}
                                         <div className="col">
                                             <div className="mb-3">
-                                                <input type="text" className="form-control" placeholder="Enter #tag" value={post.tag} name='tag' onChange={handleInputes} required />
+                                                <input type="text" className="form-control" placeholder="Enter #tag" value={post.tag} name='tag' onChange={handleInputes} />
                                             </div>
                                         </div>
                                         {/* mode tag */}
                                         <div className="col">
-                                            <select className="mb-3 form-select" value={post.mode} name='mode' onChange={handleInputes} required >
-                                                <option selected>Choose one</option>
-                                                <option value="1">Easy</option>
-                                                <option value="2">Medium</option>
-                                                <option value="3">Hard</option>
-                                            </select>
+                                            <div className="mb-3">
+                                                <input type="text" className="form-control" placeholder="Enter mode" value={post.mode} name='mode' onChange={handleInputes} />
+                                            </div>
                                         </div>
                                     </div>
                                     {/* askingCompany tag */}
                                     <div className="row">
                                         <div className="col">
                                             <div className="mb-3">
-                                                <input type="text" className="form-control" placeholder="Enter asking comapines" value={post.askingCompany} name='askingCompany' onChange={handleInputes} required />
+                                                <input type="text" className="form-control" placeholder="Enter asking comapines" value={post.askingCompany} name='askingCompany' onChange={handleInputes} />
                                             </div>
                                         </div>
                                         {/* askingYear tag */}
                                         <div className="col">
                                             <div className="mb-3">
-                                                <input type="number" className="form-control" placeholder="Enter asking years by companies" value={post.askingYear} name='askingYear' onChange={handleInputes} required />
+                                                <input type="number" className="form-control" placeholder="Enter asking years by companies" value={post.askingYear} name='askingYear' onChange={handleInputes} />
                                             </div>
                                         </div>
                                     </div>
