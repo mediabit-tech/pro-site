@@ -12,7 +12,9 @@ PS D:\mediaBit Technologies\site-pro\client>npm start
 *****************************************************
 You can run the node.js project using this command.
 
-PS D:\mediaBit Technologies\site-pro\server> nodemon index.js
+PS D:\mediaBit Technologies\site-pro\server> npm start
+
+>because_I_have_already_changed_it_into_the_json_file. 
 
 Output: 
 	Server is working on Port: 5000

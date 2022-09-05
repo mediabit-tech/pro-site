@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './fetchPost.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { stackoverflowLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { tomorrowNightEighties } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const FetchPost = () => {
 
@@ -47,29 +47,29 @@ const FetchPost = () => {
                                 <hr />
 
                                 <div className="row">
-                                    <div className="col-3">
-                                        <div>
-                                            <h5>{post.category}</h5>
+                                    <div className="col">
+                                        <div className="col lg-col-3">
+                                            <div>
+                                                <h5><span class="badge bg-custom-one">Category</span><span class="badge bg-custom-two">{post.category}</span></h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="col-2">
-                                        <div>
-                                            <h5>{post.mode}</h5>
+                                        <div className="col lg-col-3">
+                                            <div>
+                                                <h5><span class="badge bg-custom-one">Mode</span><span class="badge bg-custom-two">{post.mode}</span></h5>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div className="col-2">
-                                        {/* just for spacing  */}
-                                    </div>
-
-                                    <div className="col-4">
-                                        <div>
-                                            <h5>{post.askingCompany}</h5>
+                                    <div className="col">
+                                        <div className="col lg-col-3">
+                                            <div>
+                                                <h5><span class="badge bg-custom-one">Asking by</span><span class="badge bg-custom-two">{post.askingCompany}</span></h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="col-1">
-                                        <div>
-                                            <h5>{post.askingYear}</h5>
+                                        <div className="col lg-col-3">
+                                            <div>
+                                                <h5><span class="badge bg-custom-one">Year</span><span class="badge bg-custom-two">{post.askingYear}</span></h5>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@ const FetchPost = () => {
                                     <p>{post.inputOptionalMessage}</p>
                                 </div>
 
-                                <SyntaxHighlighter language="javascript" style={stackoverflowLight} customStyle={{ fontSize: "1.5rem", fontFamily: "Poppins", border: "1px solid #c9a0dc" }}>
+                                <SyntaxHighlighter language="javascript" style={tomorrowNightEighties} customStyle={{ fontSize: "1.5rem", border: "1px solid #c9a0dc", fontWeight: 'lighter' }}>
                                     {post.codingSnippet}
                                 </SyntaxHighlighter>
 

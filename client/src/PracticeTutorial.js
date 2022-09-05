@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Scrollbars } from 'react-custom-scrollbars';
 import './App.css';
 
 const PracticeTutorial = () => {
@@ -34,9 +33,9 @@ const PracticeTutorial = () => {
                         {(posts && posts.length > 0) && posts.map((post) => {
                             return (<>
                                 <Link to={`${post._id}`}>
-                                    <div class="row mb-3" key={post._id}>
+                                    <div class="row mb-3">
                                         <div class="col">
-                                            <div class="card">
+                                            <div class="card custom-card">
                                                 <div class="card-body">
                                                     <h5 class="card-title" style={{ fontSize: '1.3rem' }}>{post.title}</h5>
                                                     <p class="card-text" style={{ color: '#4d4d4e', fontSize: '1.1rem' }}>{post.subTitle}</p>
