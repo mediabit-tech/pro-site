@@ -30,12 +30,11 @@ const ContactSection = () => {
     emailjs.sendForm('service_7jr5t7b', 'template_a8nfrs6', e.target, 'I4js-KoVGa-yXIozZ')
       .then((result) => {
         navigate('/');
-        NotificationManager.success('Thanks for Get In Touch with us! Our executive will try to contact you as soon as possible.', 'Successful!', 5000);
+        NotificationManager.success('Thanks for Get In Touch with us! Our executive will try to contact you ASAP.', 'Successful!', 6000);
       }, (error) => {
         NotificationManager.error('Error while submitting form!', error);
       });
   };
-
 
   return (
     <>

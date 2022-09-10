@@ -217,8 +217,8 @@ header {
 }
 
 .main-herosection-images img {
-  width: 100%;
-  height: 90%;
+  width: auto;
+  height: 80%;
   margin: 0 -10rem;
   position: absolute;
 }
@@ -427,11 +427,17 @@ input[type="number"] {
   padding: 1rem 0;
 }
 
-
-
 /* --------------------------------- practice-tutorial css design start here  
                         -------------------------------------------------------*/
 
+.bg-custom-practice-tutorial {
+  background-color: #9400d3 !important;
+  color: #fff;
+  font-weight: lighter;
+  font-size: 1.3rem;
+  border-radius: 0.4rem;
+  border: 1px solid #9400d3;
+}
 
 /* @media screen and (max-width: 600px) {
   .custom-card {
@@ -442,8 +448,6 @@ input[type="number"] {
     width: auto;
   }
 } */
-
-
 
 /* --------------------------------- responsive media queries  
                         -------------------------------------------------------*/
@@ -470,6 +474,10 @@ input[type="number"] {
 }
 
 @media screen and (max-width: 600px) {
+  header {
+    min-height: 135vh;
+    width: auto;
+  }
 
   .navbar-brand {
     width: 85%;
@@ -485,11 +493,12 @@ input[type="number"] {
   }
 
   .main-hero-container h1 {
-    margin: -2rem 2rem 2rem 2rem;
+    margin: 0 2rem 2rem;
   }
 
   .main-hero-paragraph {
-    margin: 1rem 2rem 2rem 2rem;
+    margin: 0 2rem 2rem 2rem;
+    width: auto;
   }
 
   .btn-style {
@@ -503,11 +512,9 @@ input[type="number"] {
   }
 
   .main-herosection-images img {
-    width: 50%;
-    height: 200%;
-    visibility: hidden;
-    margin-top: -25rem;
-    margin-right: -25rem;
+    height: auto;
+    width: 75%;
+    margin-top: 25rem;
   }
 
   .servicesec-container {
@@ -530,7 +537,7 @@ input[type="number"] {
 
   .servicesec-container-subdiv .main-hero-paragraph {
     padding: 0 0.5rem;
-    margin: 0 !important;
+    margin: 2rem 0 !important;
   }
 
   .our-services .mini-title {
@@ -555,12 +562,17 @@ input[type="number"] {
 
   .our-services img {
     margin: 2rem 0;
-    width: 100%;
-    height: 93%;
+    width: 95%;
+    height: 92%;
   }
 
   .our-services .mini-title {
     font-size: 1.2rem;
+    margin: 0 2rem 0 -2rem;
+  }
+
+  .our-services .main-heading {
+    margin: 0 2rem 0 -2rem;
   }
 
   .contact-section {
@@ -568,7 +580,13 @@ input[type="number"] {
   }
 
   .contact-leftside img {
-    margin: auto 5rem;
+    margin: auto 0;
+    width: auto;
+    justify-content: center;
+  }
+
+  .form-checkbox-style label {
+    width: auto;
   }
 
   .row .phone-style {

@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom'
 const Header = () => {
 
     const navigate = useNavigate();
-    
-    function routeChange () {
+
+    function routeChange() {
         navigate("/");
     };
 
@@ -18,10 +18,10 @@ const Header = () => {
                     <div className="row">
                         <div className="col-12 col-lg-6 header-left-side d-flex justify-content-center flex-column align-items-start">
                             <h1 className="display-2">We <span className='heart-emoji'>❤</span> Your Creative <br /> & Innovative Ideas</h1>
-                            <p className='main-hero-paragraph'>We are a creative & innovative IT consulting services and support company, offering our excellence in web & mobile app design and development with automation. If your business craves for any IT solution, you just name it, we have the solution.</p>
+                            <p className='main-hero-paragraph'>We are a creative & innovative IT consulting services and support company, offering our excellence in web & mobile app design and development with automation. If your business craves for any IT solution, you just name it, we have the solution. <br /><br /> For intending, admonition, and dynamic people who are out of reach of technology, we always honor an idea that has the prospect of making a distinction in their lives. Please keep pushing us for your backing.</p>
                             <div className='justify-content-center'>
-                                <button className='btn-style btn-style-m' onClick={routeChange}>Read more</button>
-                                <button className='btn-style btn-style-m btn-style-b'>Comming soon</button>
+                                {/* <button className='btn-style btn-style-m' onClick={routeChange}>Read more</button>
+                                <button className='btn-style btn-style-m btn-style-b'>Comming soon</button> */}
                             </div>
                         </div>
                         {/* main header right side */}
