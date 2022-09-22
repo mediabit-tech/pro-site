@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import Loader from '../loader/loader';
 import './fetchPost.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { tomorrowNightEighties } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { javascript } from 'react-syntax-highlighter/dist/esm/languages/hljs';
+import { vs } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const FetchPost = () => {
 
@@ -36,7 +37,7 @@ const FetchPost = () => {
         <>
             {loading ? (<Loader />) : (
                 <>
-                    <section className='common-section our-services'>
+                    <section className='common-section'>
                         <div className="container mb-5">
                             <div className="row custom-theme">
                                 <div className="col-12 col-lg-8" >
@@ -90,7 +91,7 @@ const FetchPost = () => {
                                             <p>{post.inputOptionalMessage}</p>
                                         </div>
 
-                                        <SyntaxHighlighter language="javascript" style={tomorrowNightEighties} customStyle={{ fontSize: "1.5rem", border: "1px solid #c9a0dc", fontWeight: 'lighter' }}>
+                                        <SyntaxHighlighter language={javascript} style={vs} customStyle={{ fontSize: "1.5rem", border: "1px solid #A78571", fontWeight: 'lighter' }}>
                                             {post.codingSnippet}
                                         </SyntaxHighlighter>
 

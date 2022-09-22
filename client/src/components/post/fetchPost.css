@@ -1,3 +1,7 @@
+.custom-theme {
+    margin-top: 2rem;
+}
+
 .custom-theme h2 {
     font-size: 2.5rem;
     font-weight: bold;
@@ -9,7 +13,7 @@
 }
 
 .custom-theme hr {
-    color: #9400d3;
+    color: #A78571;
     width: auto;
 }
 
@@ -26,24 +30,24 @@
     font-size: 1.2rem;
     width: 0.1%;
     padding-left: 0.5%;
-    background-color: #9400d3;
+    background-color: #3C1C0A;
 }
 
 .bg-custom-one {
-    background-color: #9400d3 !important;
+    background-color: #3C1C0A !important;
     color: #fff;
     font-weight: normal;
     font-size: 1rem;
     border-radius: 0%;
-    border: 1px solid #9400d3;
+    border: 1px solid #3C1C0A;
   }
 
   .bg-custom-two {
     background-color: #fff !important;
-    color: #9400d3;
+    color: #3C1C0A;
     font-weight: normal;
     font-size: 1rem;
     border-radius: 0%;
-    border: 1px solid #9400d3;
+    border: 1px solid #3C1C0A;
   }
   

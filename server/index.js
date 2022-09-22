@@ -1,12 +1,13 @@
 const dotenv = require('dotenv');
 const express = require('express');
 const cookieParser = require("cookie-parser");
+const bodyParser = require('body-parser');
 
 const app = express();
-
 dotenv.config({ path: './config.env' });
 require('./db/connection');
 
+app.use(bodyParser.urlencoded({ extended: true }));
 // middleware for understand the input info of user to application in json format
 app.use(express.json());
 app.use(cookieParser());

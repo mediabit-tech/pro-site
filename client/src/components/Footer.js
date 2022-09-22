@@ -13,7 +13,7 @@ const Footer = () => {
                     <div className="footer">
                         <hr />
                         <p className='main-hero-paragraph footerContent'>
-                            Copyright © {year} <a href="#top" className='footer-css'>mediaBit.in</a> | All Rights Reserved | Made with <span style={{ color: "#9400d3" }}>❤</span> in India
+                            © {year} | All Rights Reserved | brownpapper powered by <a href="https://mediabit.in/" target='_blank' className='footer-css'>mediabit.in</a> | Made with <span style={{ color: "#3C1C0A" }}>❤</span> in India
                         </p>
                         <div className='bottom-narrow-strip'></div>
                     </div>

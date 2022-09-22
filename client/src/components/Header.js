@@ -1,38 +1,25 @@
-import React from 'react'
-import "../App.css"
-import "../arrow.scss"
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import "../App.css";
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
 
     const navigate = useNavigate();
 
-    function routeChange() {
-        navigate("/");
-    };
+    function contactSection(e) {
+        e.preventDefault();
+        navigate('/suggestion-box');
+    }
 
     return (
         <>
             <header>
                 <section className='container main-hero-container'>
                     <div className="row">
-                        <div className="col-12 col-lg-6 header-left-side d-flex justify-content-center flex-column align-items-start">
-                            <h1 className="display-2">We <span className='heart-emoji'>❤</span> Your Creative <br /> & Innovative Ideas</h1>
-                            <p className='main-hero-paragraph'>We are a creative & innovative IT consulting services and support company, offering our excellence in web & mobile app design and development with automation. If your business craves for any IT solution, you just name it, we have the solution. <br /><br /> For intending, admonition, and dynamic people who are out of reach of technology, we always honor an idea that has the prospect of making a distinction in their lives. Please keep pushing us for your backing.</p>
-                            <div className='justify-content-center'>
-                                {/* <button className='btn-style btn-style-m' onClick={routeChange}>Read more</button>
-                                <button className='btn-style btn-style-m btn-style-b'>Comming soon</button> */}
-                            </div>
+                        <div className="col-12 mt-5">
+                            <h1>Elevate yourself from <span>Zero to Hero</span> level real-life problems</h1>
+                            <p className='main-hero-paragraph'>We are trying to do a collection of zero to hero-level problems related to the fullstack with DSA. <br /> Please send the message from the suggestion box if you have any suggestions. <a onClick={contactSection} style={{ color: '#3C1C0A', cursor: 'pointer' }} > Click here</a></p>
                         </div>
-                        {/* main header right side */}
-                        <div className="col-12 col-lg-6 header-right-side d-flex justify-content-center align-items-center main-herosection-images">
-                            <img src="./images/sample-prev.png" alt="heroimg" className='img-fluid' loading='lazy' />
-                        </div>
-                    </div>
-                    {/* Arrow styling */}
-                    <div className="row">
-                        <div className="arrow arrow-first"></div>
-                        <div className="arrow arrow-second"></div>
                     </div>
                 </section>
             </header>
@@ -40,4 +27,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;
