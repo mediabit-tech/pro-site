@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './uploadPost.css';
-import { Scrollbars } from 'react-custom-scrollbars';
+import { NotificationManager } from 'react-notifications';
 
 const UploadPost = () => {
     const navigate = useNavigate();
     // we can't use async function inside the useEffect hooks so that's why i'm define callUploadPostPage() function the outside of the useEffect hooks 
     const callUploadPostPage = async () => {
-        try {
+        try { // credentials check 
             const res = await fetch('/upload-post', {
                 method: 'GET',
                 headers: {
@@ -18,7 +18,7 @@ const UploadPost = () => {
             });
             await res.json();
             // assurity
-            if (res.status != 200) {
+            if (res.status !== 200) {
                 const error = new Error(res.error);
                 throw error;
             }
@@ -30,7 +30,7 @@ const UploadPost = () => {
 
     useEffect(() => {
         callUploadPostPage();
-    }, [callUploadPostPage]);
+    }, []);
 
     // create new post
     const [post, setPost] = useState({
@@ -61,8 +61,14 @@ const UploadPost = () => {
         if (data.status === 422 || !data) {
             console.log('Error while uploading post!');
         } else {
-            console.log('New post uploaded!', 'Successful!', 5000);
+            // console.log('New post uploaded!', 'Successful!', 5000);
+            NotificationManager.success('Uploaded successfully!', post.title);
         }
+    }
+
+    function clickOnLogoutPanel(e) {
+        e.preventDefault();
+        navigate('/upload-post/logout');
     }
 
     return (
@@ -70,24 +76,15 @@ const UploadPost = () => {
             <section>
                 <div className="container custom-container">
                     <div className="row custom-css">
-                        {/* left side */}
-                        <div className="col-4">
-                            <div className="row">
-                                <h1>Your All Posts</h1>
-                                <form method='GET'>
-                                    <Scrollbars style={{ width: 300, height: 300 }} >
-                                        <div className="mt-3 mb-3">
-                                            <h4>This is displaying area.</h4>
-                                        </div>
-                                    </Scrollbars>
-                                </form>
-                            </div>
-                        </div>
-
                         {/* right side */}
                         <div className="col-8">
                             <div className="row">
-                                <h1>Create Your New Post</h1>
+                                <div className="col-6">
+                                    <h1>Create Your New Post</h1>
+                                </div>
+                                <div className="col-6">
+                                    <button className='btn btn-style-custom' onClick={clickOnLogoutPanel}>Logout</button>
+                                </div>
                                 <form method='POST'>
                                     {/* title tag */}
                                     <div className="mt-3 mb-3">
@@ -160,4 +157,4 @@ const UploadPost = () => {
     )
 }
 
-export default UploadPost
+export default UploadPost;

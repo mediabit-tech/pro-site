@@ -1,5 +1,4 @@
 import React from 'react';
-import errorImg from '../../internalImgs/error404.png';
 import './error404.css';
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +12,7 @@ const Error404 = () => {
                 <div className="row">
                     <div className="col-12 lg-col-10">
                         <div className="row">
-                            <img src={errorImg} alt="" loading='lazy' />
+                            <img alt="" loading='lazy' />
                         </div>
                     </div>
 

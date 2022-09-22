@@ -4,6 +4,10 @@
   padding: 0 1rem;
 }
 
+.custom-css .navbar-nav {
+  color: #3C1C0A;
+}
+
 .custom-css h1 {
   font-size: 2rem;
   font-weight: bolder;

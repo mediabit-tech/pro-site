@@ -4,16 +4,12 @@ const router = express.Router();
 require('../db/connection');
 const Post = require('../models/postSchema');
 
-router.get('/', (req, res) => {
-    res.send("This is home from post.js!");
-});
-
 // submit post route
 router.post('/submitpost', async (req, res) => {
     // get info from body
     const { title, subTitle, message, inputOptionalMessage, codingSnippet, outputOptionalMessage, category, tag, mode, askingCompany, askingYear } = req.body;
     // validation
-    if (!title || !codingSnippet || !category || !mode || !askingCompany ) {
+    if (!title || !codingSnippet || !category || !mode || !askingCompany) {
         return res.status(422).json({ error: "Fill the input filed properly!" });
     }
 
@@ -59,7 +55,24 @@ router.get('/get-posts/:id', async (req, res) => {
             return res.status(404).json({ error: "Post Id isn't found!" });
         }
         res.status(200).send(postId).json({ message: "Post Id fetched successfully!" });
-        console.log(postId);
+        // console.log(postId);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+// search functionality
+router.get('/', async (req, res) => {
+    try {
+        const searchData = await Post.find({
+            // now use regex for filter the data according to search keyword
+            "$or": [
+                { title: { $options: 'sim', $regex: req.body.input } },
+                { subTitle: { $options: 'sim', $regex: req.body.input } },
+                { category: { $options: 'sim', $regex: req.body.input } }
+            ]
+        });
+        res.status(200).send(searchData).json({ message: "searching successfully done" });
     } catch (err) {
         console.log(err);
     }

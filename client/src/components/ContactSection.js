@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import contactImg from "../internalImgs/contact-us.png"
+import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useNavigate } from 'react-router-dom';
 import { NotificationManager } from 'react-notifications';
@@ -8,13 +7,9 @@ import 'react-notifications/lib/notifications.css';
 const ContactSection = () => {
 
   let [fields, setFields] = useState({
-    userFirstName: '',
-    userLastName: '',
-    userPhoneNumber: '',
+    userName: '',
     userEmailId: '',
-    userAddress: '',
-    userMessage: '',
-    formCheckInput: ''
+    userMessage: ''
   });
 
   let navigate = useNavigate();
@@ -30,7 +25,7 @@ const ContactSection = () => {
     emailjs.sendForm('service_7jr5t7b', 'template_a8nfrs6', e.target, 'I4js-KoVGa-yXIozZ')
       .then((result) => {
         navigate('/');
-        NotificationManager.success('Thanks for Get In Touch with us! Our executive will try to contact you ASAP.', 'Successful!', 6000);
+        NotificationManager.success('Thanks for your suggestion', 'Successfully sent!', 6000);
       }, (error) => {
         NotificationManager.error('Error while submitting form!', error);
       });
@@ -38,66 +33,44 @@ const ContactSection = () => {
 
   return (
     <>
-      <section className='contact-section'>
+      <section className='mt-5 contact-area'>
         <div className="container">
           <div className="row">
             <div className="col-12 col-lg-10 mx-auto">
               <div className="row">
                 <div className="contact-leftside col-12 col-lg-5">
-                  <h1 className='main-heading'>Get In Touch</h1>
-                  <p className='main-hero-paragraph'>
-                    <li> Please leave your message here based on your needs. </li>
-                    <li> Our executive will try to contact you as soon as possible.</li>
-                  </p>
-                  <figure>
-                    <img src={contactImg} alt="contactImg" className='img-fluid' />
-                  </figure>
+                  <h1 className='main-heading'>Suggestion Box</h1>
+                  <p className='main-hero-paragraph'>This website is currently under development. We are constantly trying to make this method more useful for you. Please send the message from the suggestion box, If you have any suggestions. We will give priority to your suggestions, If it is valuable.</p>
                 </div>
                 {/* right side contact form */}
                 <div className="contact-rightside col-12 col-lg-7">
                   <form onSubmit={sendEmail}>
                     <div className="row">
-                      {/* User first name */}
-                      <div className="col-12 col-lg-6 contact-input-field">
-                        <input type="text" name="userFirstName" id="" value={fields.userFirstName} onChange={onChange} className='form-control' placeholder='First Name' required />
+                      {/* User name */}
+                      <div className="col-6 form-floating mb-3">
+                        <input type="text" name="userName" value={fields.userName} onChange={onChange} className='form-control' placeholder='First Name' required />
+                        <label for="floatingTextarea2">Enter name</label>
                       </div>
-                      {/* User last name */}
-                      <div className="col-12 col-lg-6 contact-input-field">
-                        <input type="text" name="userLastName" id="" value={fields.userLastName} onChange={onChange} className='form-control' placeholder='Last Name' required />
-                      </div>
-                    </div>
-                    <div className="row">
-                      {/* User phone number */}
-                      <div className="col-12 col-lg-6 contact-input-field">
-                        <input type="number" name="userPhoneNumber" id="" value={fields.userPhoneNumber} onChange={onChange} className='form-control' placeholder='Phone Number' required />
-                      </div>
-                      {/* User email id */}
-                      <div className="col-12 col-lg-6 contact-input-field">
-                        <input type="email" name="userEmailId" id="" value={fields.userEmailId} onChange={onChange} className='form-control' placeholder='Email Id' required />
-                      </div>
-                    </div>
-                    <div className="row">
-                      {/* User address */}
-                      <div className="col-12 contact-input-field">
-                        <input type="text" name="userAddress" id="" value={fields.userAddress} onChange={onChange} className='form-control' placeholder='Add Address' required />
+                      <div className="col-6 form-floating mb-3">
+                        <input type="email" name="userEmailId" value={fields.userEmailId} onChange={onChange} className='form-control' placeholder='Email Id' required />
+                        <label for="floatingTextarea2">Enter email</label>
                       </div>
                     </div>
                     <div className="row">
                       {/* User message */}
-                      <div className="col-12">
-                        <input type="text" name="userMessage" id="" value={fields.userMessage} onChange={onChange} className='form-control' placeholder='Enter your message' required />
+                      <div className="col-12 form-floating">
+                        <textarea name="userMessage" value={fields.userMessage} onChange={onChange} className='form-control' placeholder='Enter your message' required />
+                        <label for="floatingTextarea2">Type your suggestion</label>
                       </div>
                     </div>
-                    {/* Form check input */}
-                    <div class="form-check form-checkbox-style">
-                      <input class="formCheckInput" className='form-check-input' type="checkbox" id="flexCheckChecked" value={fields.formCheckInput} onChange={onChange} required />
-                      <label class="form-check-label" className='main-hero-paragraph'>
-                        I agree that mediaBit team may contact me at the email address or phone number above and by using this form I agree to the storage and management of my data by this website in accordance with your policy.
-                      </label>
+
+                    <div className="row">
+                      <p className='contact-label'>Upon submitting your message by clicking the button below, you will consent to the storage and handling of data by this website in accordance with the Policy.</p>
                     </div>
+                    {/* Form submit input */}
                     <div className="row">
                       <div className="col-12">
-                        <input type="submit" value="Get In Touch" id="" onChange={onChange} className='btn btn-style w-100 phone-style' />
+                        <input type="submit" value="Leave your suggesation" id="" onChange={onChange} className='btn btn-style w-50' />
                       </div>
                     </div>
                   </form>

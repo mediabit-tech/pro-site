@@ -8,7 +8,7 @@
   flex: 1 1 100%;
   align-items: stretch;
   justify-content: space-between;
-  box-shadow: 0 0 20px 0 #4d4d4e;
+  box-shadow: 0 0 20px 0 #A78571;
 }
 @media (max-width: 980px) {
   .box-form {
@@ -25,14 +25,14 @@
   color: #ffffff;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("../../internalImgs/signin-img.png");
+  /* background-image: url("../../internalImgs/signin-img.png"); */
   overflow: hidden;
 }
 .box-form .left .overlay {
   padding: 30px;
   width: 100%;
   height: 100%;
-  background: rgba(201, 160, 220, 0.7);
+  background: rgba(167, 133, 113, 0.7);
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -48,8 +48,8 @@
   font-weight: 900;
 }
 .box-form .left .overlay a {
-  background: #9400d3;
-  color: #c9a0dc;
+  background: #3C1C0A;
+  color: #A78571;
   margin-top: 10px;
   padding: 14px 50px;
   border-radius: 100px;
@@ -74,14 +74,14 @@
 }
 .box-form .right p {
   font-size: 14px;
-  color: #b0b3b9;
+  color: #A78571;
   padding-top: 1rem;
 }
 
 .box-form .right a {
   pointer-events: none;
   cursor: default;
-  color: #c9a0dc;
+  color: #A78571;
 }
 
 .box-form .right .inputs {
@@ -94,7 +94,7 @@
   font-size: 16px;
   border: none;
   outline: none;
-  border-bottom: 2px solid #b0b3b9;
+  border-bottom: 2px solid #A78571;
 }
 .box-form .right .remember-me--forget-password {
   display: flex;
