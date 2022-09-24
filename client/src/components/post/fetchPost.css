@@ -1,53 +1,100 @@
 .custom-theme {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .custom-theme h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
 .custom-theme h3 {
-    margin-bottom: 2rem;
-    font-weight: lighter;
+  margin-bottom: 2rem;
+  font-weight: lighter;
 }
 
 .custom-theme hr {
-    color: #A78571;
-    width: auto;
+  color: #a78571;
+  width: auto;
 }
 
 .custom-theme h5 {
-    font-weight: auto;
+  font-weight: auto;
 }
 
 .custom-theme p {
-    font-size: 1.5rem;
-    font-weight: lighter;
+  font-size: 1.5rem;
+  font-weight: lighter;
 }
 
 .custom-theme h6 {
-    font-size: 1.2rem;
-    width: 0.1%;
-    padding-left: 0.5%;
-    background-color: #3C1C0A;
+  font-size: 1.2rem;
+  width: 0.1%;
+  padding-left: 0.5%;
+  background-color: #3c1c0a;
 }
 
 .bg-custom-one {
-    background-color: #3C1C0A !important;
-    color: #fff;
-    font-weight: normal;
-    font-size: 1rem;
-    border-radius: 0%;
-    border: 1px solid #3C1C0A;
+  background-color: #3c1c0a !important;
+  color: #fff;
+  font-weight: normal;
+  font-size: 1rem;
+  border-radius: 0%;
+  border: 1px solid #3c1c0a;
+}
+
+.bg-custom-two {
+  background-color: #fff !important;
+  color: #3c1c0a;
+  font-weight: normal;
+  font-size: 1rem;
+  border-radius: 0%;
+  border: 1px solid #3c1c0a;
+}
+
+.right-side-all-pots {
+  margin: 0;
+  width: auto;
+  line-height: normal;
+  border: 1px solid #a78571;
+  border-radius: 0.5rem;
+  transition: 0.5s;
+  padding: 1rem 0 0 1rem;
+}
+
+.right-side-all-pots h5 {
+  color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-wrap: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.right-side-all-pots p {
+  color: #4d4d4e;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.right-side-all-pots:hover {
+  border: 1px solid #3c1c0a;
+  border-radius: 0.5rem;
+  transition: 0.5s;
+  padding: 1rem 0 0 1rem;
+  background-color: #ddb39a3a;
+}
+
+@media screen and (max-width: 600px) {
+  .right-side-all-pots h5 {
+    -webkit-line-clamp: 1;
   }
 
-  .bg-custom-two {
-    background-color: #fff !important;
-    color: #3C1C0A;
-    font-weight: normal;
-    font-size: 1rem;
-    border-radius: 0%;
-    border: 1px solid #3C1C0A;
+  .right-side-all-pots p {
+    -webkit-line-clamp: 2;
   }
-  
+}

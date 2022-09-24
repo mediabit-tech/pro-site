@@ -22,7 +22,7 @@ const Navbar = () => {
             <section className='navbar-bg'>
                 <nav className="navbar navbar-expand-lg sticky-navbar-custom">
                     <div className="container">
-                        <a className="navbar-brand" onClick={clickOnHomepage}><span className='cutom-span-tag'><i class="fa-solid fa-book-open"></i> brownpapper</span></a>
+                        <a className="navbar-brand" onClick={clickOnHomepage}><span className='cutom-span-tag'><i class="fa-solid fa-book-open"></i> brownpaper</span></a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onClick={() => setNavBtnShowHide(!navBtnShowHide)}>
                             <span className="navbar-toggler-icon"></span>
                         </button>

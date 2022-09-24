@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from '../loader/loader';
+import { useNavigate, Link } from 'react-router-dom';
 import './fetchPost.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { javascript } from 'react-syntax-highlighter/dist/esm/languages/hljs';
-import { vs } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { stackoverflowLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const FetchPost = () => {
 
+    let navigate = useNavigate();
     const params = useParams();
     console.log(params);
     const [post, setPost] = useState("");
+    const [posts, setPosts] = useState("");
     const [loading, setLoading] = useState(true);
 
-    // route for all posts
+    //  for change the nested route
+    function changeLocation(placeToGo) {
+        navigate(placeToGo, { replace: true });
+        window.location.reload();
+    }
+
+    // go to back handler
+    window.onpopstate = () => {
+        navigate("/");
+    }
+
+    // route for single post
     const loadSinglePost = async () => {
         try {
             const getPost = await fetch(`/get-posts/${params.id}`, {
@@ -28,9 +42,25 @@ const FetchPost = () => {
         }
     };
 
+    // route for all posts
+    const loadAllPosts = async () => {
+        try {
+            const getPosts = await fetch('/get-posts', {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            const data = await getPosts.json();
+            setPosts(data);
+            setLoading(false);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     useEffect(() => {
-        // eslint-disable-next-line
         loadSinglePost();
+        loadAllPosts();
+        console.log("posts: ", posts);
     }, []);
 
     return (
@@ -91,7 +121,7 @@ const FetchPost = () => {
                                             <p>{post.inputOptionalMessage}</p>
                                         </div>
 
-                                        <SyntaxHighlighter language={javascript} style={vs} customStyle={{ fontSize: "1.5rem", border: "1px solid #A78571", fontWeight: 'lighter' }}>
+                                        <SyntaxHighlighter language={javascript} style={stackoverflowLight} customStyle={{ fontSize: "1.5rem", border: "1px solid #A78571", fontWeight: 'lighter' }}>
                                             {post.codingSnippet}
                                         </SyntaxHighlighter>
 
@@ -102,6 +132,30 @@ const FetchPost = () => {
                                         <div className="mb-3">
                                             <h6>{post.tag}</h6>
                                         </div>
+                                    </div>
+                                </div>
+                                <div className="col-12 col-lg-4" >
+                                    <div className="mb-3">
+
+                                        {loading ? (<Loader />) : (
+                                            <>
+                                                <h1>All posts</h1>
+                                                <div class="row mb-3 row-cols-2 row-cols-md-1 g-1">
+                                                    {(posts && posts.length > 0) && posts.map((post, key) => {
+                                                        return (<>
+                                                            <Link to={`/${post._id}`} key={key} onClick={() => changeLocation(`/${post._id}`)}>
+
+                                                                <div className="right-side-all-pots">
+                                                                    <h5>{post.title}</h5>
+                                                                    <p>{post.subTitle}</p>
+                                                                </div>
+                                                            </Link>
+                                                        </>)
+                                                    })}
+                                                </div>
+                                            </>
+                                        )}
+
                                     </div>
                                 </div>
                             </div>
