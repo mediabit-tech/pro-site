@@ -12,6 +12,7 @@ import UploadPost from './components/post/uploadPost';
 import Logout from './components/logout';
 import FetchPost from './components/post/fetchPost';
 import ContactSection from './components/ContactSection';
+import McqInsights from './components/mcq/mcqInsights';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route exact path='/admin-signin' element={<Signin />} />
           <Route exact path='/upload-post' element={<UploadPost />} />
           <Route exact path='/upload-post/logout' element={<Logout />} />
+          <Route exact path='/mcq-insights' element={<McqInsights />} />
 
           <Route element={<ErrorPage />} />
         </Routes>

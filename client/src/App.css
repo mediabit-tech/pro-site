@@ -119,12 +119,12 @@ h6 {
 
 header {
   background-color: var(--bgcolor);
-  min-height: 30vh !important;
+  min-height: 35vh !important;
   width: 100%;
 }
 
 .main-hero-container {
-  height: 30vh !important;
+  height: 35vh !important;
   display: flex;
 }
 
@@ -404,6 +404,46 @@ input[type="search"]::-webkit-search-results-decoration {
   color: #aaa;
 }
 
+/* --------------------------------- MCQ homepage section  
+                        -------------------------------------------------------*/
+
+.bg-mcq {
+  background-color: var(--bgcolor);
+  border: 1px solid var(--bgcolor);
+  border-radius: 0.5rem;
+  padding: 0 5rem;
+}
+
+.bg-mcq h1 {
+  font-weight: bold;
+}
+
+.bg-mcq p {
+  color: white;
+}
+
+.mcq-btn-lite {
+  width: 12rem !important;
+  height: 4rem;
+  color: white;
+  background-color: var(--primary-color);
+  text-transform: capitalize;
+  font-size: 1.6rem;
+  cursor: pointer;
+  float: right;
+  border: 1px solid var(--primary-color);
+  border-radius: 5rem;
+  transition: all 0.5s;
+  width: 9vmax;
+  font: 500 1vmax "Ubuntu";
+}
+
+.mcq-btn-lite:hover {
+  color: var(--primary-color);
+  background-color: transparent;
+  transition: all 0.5s;
+}
+
 /* --------------------------------- responsive media queries  
                         -------------------------------------------------------*/
 
@@ -417,14 +457,19 @@ input[type="search"]::-webkit-search-results-decoration {
     max-width: 600px !important;
   }
 
+  .header-theme {
+    margin: 1rem 0;
+  }
+
   .main-hero-container h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .main-hero-container p {
     padding: 0;
     margin: 0;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .navbar-brand {
@@ -497,16 +542,33 @@ input[type="search"]::-webkit-search-results-decoration {
   .bottom-narrow-strip {
     margin-top: 7rem !important;
   }
+
+  .bg-mcq {
+    padding: 1rem;
+  }
+
+  .mcq-btn-lite {
+    width: 50%;
+    font-size: 1.3rem;
+    float: left;
+    margin-bottom: 1rem;
+  }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (min-width: 600px) {
   .container,
   .container-lg,
   .container-md,
   .container-sm,
   .container-xl,
   .container-xxl {
-    max-width: 900px !important;
+    min-width: 600px !important;
+  }
+
+  .mcq-btn-lite {
+    width: 25%;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -518,6 +580,11 @@ input[type="search"]::-webkit-search-results-decoration {
   .container-xl,
   .container-xxl {
     max-width: 1280px !important;
+  }
+  .mcq-btn-lite {
+    width: 25%;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
   }
 }
 

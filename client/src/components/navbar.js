@@ -12,10 +12,15 @@ const Navbar = () => {
         navigate('/');
     };
 
-    function goToSigninPage(e) {
+    function clickOnMCQInsights(e) {
         e.preventDefault();
-        navigate('/admin-signin');
-    };
+        navigate('/mcq-insights');
+    }
+
+    // function goToSigninPage(e) {
+    //     e.preventDefault();
+    //     navigate('/admin-signin');
+    // };
 
     return (
         <>
@@ -28,8 +33,11 @@ const Navbar = () => {
                         </button>
                         <div className={`collapse navbar-collapse ${navBtnShowHide ? "show" : ""}`} >
                             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <a className="nav-link" onClick={clickOnHomepage} style={{fontWeight: 'bold'}}><i class="fa-solid fa-home"></i> Homepage</a>
+                                <li className="nav-item">
+                                    <a className="nav-link"  onClick={clickOnHomepage} style={{fontWeight: 'bold'}}><i class="fa-solid fa-home"></i> Homepage</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" onClick={clickOnMCQInsights} style={{fontWeight: 'bold'}}><i class="fa-solid fa-pen-to-square"></i> MCQ Insights</a>
                                 </li>
                                 {/* <button className='btn-style' onClick={goToSigninPage}>Sign In</button> */}
                             </ul>

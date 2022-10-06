@@ -136,18 +136,16 @@ const FetchPost = () => {
                                 </div>
                                 <div className="col-12 col-lg-4" >
                                     <div className="mb-3">
-
                                         {loading ? (<Loader />) : (
                                             <>
-                                                <h1>All posts</h1>
+                                                <h1>Most Recent Posts</h1>
                                                 <div class="row mb-3 row-cols-2 row-cols-md-1 g-1">
-                                                    {(posts && posts.length > 0) && posts.map((post, key) => {
+                                                    {posts && posts.sort((a, b) => a.createdAt > b.createdAt ? -1 : 1).slice(0, 5).map((post, index) => {
                                                         return (<>
-                                                            <Link to={`/${post._id}`} key={key} onClick={() => changeLocation(`/${post._id}`)}>
-
+                                                            <Link to={`/${post._id}`} key={index} onClick={() => changeLocation(`/${post._id}`)}>
                                                                 <div className="right-side-all-pots">
-                                                                    <h5>{post.title}</h5>
                                                                     <p>{post.subTitle}</p>
+                                                                    <p>{post.tag}</p>
                                                                 </div>
                                                             </Link>
                                                         </>)
@@ -155,7 +153,6 @@ const FetchPost = () => {
                                                 </div>
                                             </>
                                         )}
-
                                     </div>
                                 </div>
                             </div>

@@ -86,7 +86,7 @@
   border-radius: 0.5rem;
   transition: 0.5s;
   padding: 1rem 0 0 1rem;
-  background-color: #ddb39a3a;
+  background-color: #F6F6F6;
 }
 
 @media screen and (max-width: 600px) {
@@ -95,6 +95,6 @@
   }
 
   .right-side-all-pots p {
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
   }
 }
