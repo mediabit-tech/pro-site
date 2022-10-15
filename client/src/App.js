@@ -12,7 +12,8 @@ import UploadPost from './components/post/uploadPost';
 import Logout from './components/logout';
 import FetchPost from './components/post/fetchPost';
 import ContactSection from './components/ContactSection';
-import McqInsights from './components/mcq/mcqInsights';
+import McqInsights from './components/mcq/fetchMCQInsights';
+import UploadMCQInsights from './components/mcq/uploadMCQInsights';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route exact path='/suggestion-box' element={<ContactSection />} />
           <Route exact path='/admin-signin' element={<Signin />} />
           <Route exact path='/upload-post' element={<UploadPost />} />
+          <Route exact path='/upload-mcqinsights' element={<UploadMCQInsights />} />
           <Route exact path='/upload-post/logout' element={<Logout />} />
           <Route exact path='/mcq-insights' element={<McqInsights />} />
 

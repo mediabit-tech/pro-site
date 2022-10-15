@@ -40,7 +40,7 @@ const Signin = () => {
 
                 <div className="right">
                     <h5>Sign In</h5>
-                    <p>Don't have an account? <a href="">Creat Your Account</a> Feature is disabled by admin.</p>
+                    <p>Don't have an account? <a href="">Create Your Account</a> Feature is disabled by admin.</p>
                     <form method='POST'>
                         <div className="inputs">
                             <input className='input-field' type="text" placeholder="username" value={username} onChange={(e) => setUsername(e.target.value)} ></input>

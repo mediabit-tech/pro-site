@@ -62,7 +62,7 @@ const PracticeTutorial = () => {
                                 <>
                                     <div class="row mb-3 row-cols-2 row-cols-md-4 g-4">
                                         {(posts && posts.length > 0) && posts.filter((post) => {
-                                            if (query == "") {
+                                            if (query === "") {
                                                 return post
                                             } else if (post.title.toLowerCase().includes(query.toLowerCase()) || post.subTitle.toLowerCase().includes(query.toLowerCase())) {
                                                 return post

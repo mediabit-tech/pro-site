@@ -7,7 +7,7 @@ const Post = require('../models/postSchema');
 // submit post route
 router.post('/submitpost', async (req, res) => {
     // get info from body
-    const { title, subTitle, message, inputOptionalMessage, codingSnippet, outputOptionalMessage, category, tag, mode, askingCompany, askingYear } = req.body;
+    const { title, subTitle, message, inputOptionalMessage, codingSnippet, outputOptionalMessage, category, tag, mode, askingCompany, modified } = req.body;
     // validation
     if (!title || !codingSnippet || !category || !mode || !askingCompany) {
         return res.status(422).json({ error: "Fill the input filed properly!" });
@@ -16,12 +16,12 @@ router.post('/submitpost', async (req, res) => {
     try {
         // already existance
         const postExist = await Post.findOne({ title: title });
-
+        
         if (postExist) {
             return res.status(422).json({ error: "Post already exists. Duplicacy is not allowed!" });
         } else {
             // If not already exists then store all info into a variable
-            const post = new Post({ title, subTitle, message, inputOptionalMessage, codingSnippet, outputOptionalMessage, category, tag, mode, askingCompany, askingYear });
+            const post = new Post({ title, subTitle, message, inputOptionalMessage, codingSnippet, outputOptionalMessage, category, tag, mode, askingCompany, modified });
             // write a function for hashing the password before call save() method
             await post.save();
             res.status(201).json({ message: "New post successfully uploaded!" });

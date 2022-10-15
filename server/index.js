@@ -14,10 +14,12 @@ app.use(cookieParser());
 // routes import
 const auth = require('./router/auth');
 const post = require('./router/post');
+const mcq = require('./router/mcq');
 
 // to link our router files to route easily
 app.use(auth);
 app.use(post);
+app.use(mcq);
 
 const PORT = process.env.PORT;
 

@@ -36,8 +36,8 @@ const postSchema = new mongoose.Schema({
     askingCompany: {
         type: String
     },
-    askingYear: {
-        type: Number
+    modified: {
+        type: String
     },
     createdAt: {
         type: Date,
@@ -49,8 +49,7 @@ const postSchema = new mongoose.Schema({
     },
     // user: {
     //     type: mongoose.Schema.ObjectId,
-    //     ref: 'User',
-    //     required: true
+    //     ref: 'User'
     // }
 })
 

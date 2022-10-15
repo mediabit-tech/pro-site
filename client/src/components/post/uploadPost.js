@@ -34,7 +34,7 @@ const UploadPost = () => {
 
     // create new post
     const [post, setPost] = useState({
-        title: "", subTitle: "", message: "", inputOptionalMessage: "", codingSnippet: "", outputOptionalMessage: "", category: "", tag: "", mode: "", askingCompany: "", askingYear: ""
+        title: "", subTitle: "", message: "", inputOptionalMessage: "", codingSnippet: "", outputOptionalMessage: "", category: "", tag: "", mode: "", askingCompany: "", modified: ""
     });
 
     let name, value;
@@ -47,22 +47,25 @@ const UploadPost = () => {
 
     const sendDataOnBackend = async (e) => {
         e.preventDefault();
-        const { title, subTitle, message, inputOptionalMessage, codingSnippet, outputOptionalMessage, category, tag, mode, askingCompany, askingYear } = post;
-
-        const res = await fetch('/submitpost', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ title, subTitle, message, inputOptionalMessage, codingSnippet, outputOptionalMessage, category, tag, mode, askingCompany, askingYear })
-        });
-
-        const data = await res.json();
-        if (data.status === 422 || !data) {
-            console.log('Error while uploading post!');
+        const { title, subTitle, message, inputOptionalMessage, codingSnippet, outputOptionalMessage, category, tag, mode, askingCompany, modified } = post;
+        if (!title || !category || !modified) {
+            NotificationManager.error('Oops! field is empty.', 'Error', 5000);
         } else {
-            // console.log('New post uploaded!', 'Successful!', 5000);
-            NotificationManager.success('Uploaded successfully!', post.title);
+            const res = await fetch('/submitpost', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ title, subTitle, message, inputOptionalMessage, codingSnippet, outputOptionalMessage, category, tag, mode, askingCompany, modified })
+            });
+
+            const data = await res.json();
+            if (data.status === 422 || !data) {
+                NotificationManager.error('Oops! getting error while uploading.', 'Error', 5000);
+            } else {
+                // console.log('New post uploaded!', 'Successful!', 5000);
+                NotificationManager.success('Uploaded successfully!', post.title, 5000);
+            }
         }
     }
 
@@ -71,19 +74,29 @@ const UploadPost = () => {
         navigate('/upload-post/logout');
     }
 
+    function clickOnMCQPanel(e) {
+        e.preventDefault();
+        navigate('/upload-mcqinsights');
+    }
+
     return (
         <>
             <section>
                 <div className="container custom-container">
                     <div className="row custom-css">
+                        <div className="col-3">
+                            <div className="row">
+                                <div className="col-6 mt-3">
+                                    <button className='btn btn-style-custom' onClick={clickOnMCQPanel}>New MCQ</button>
+                                    <button className='btn btn-style-custom' onClick={clickOnLogoutPanel}>Logout</button>
+                                </div>
+                            </div>
+                        </div>
                         {/* right side */}
                         <div className="col-8">
                             <div className="row">
                                 <div className="col-6">
                                     <h1>Create Your New Post</h1>
-                                </div>
-                                <div className="col-6">
-                                    <button className='btn btn-style-custom' onClick={clickOnLogoutPanel}>Logout</button>
                                 </div>
                                 <form method='POST'>
                                     {/* title tag */}
@@ -137,10 +150,10 @@ const UploadPost = () => {
                                                 <input type="text" className="form-control" placeholder="Enter asking comapines" value={post.askingCompany} name='askingCompany' onChange={handleInputes} />
                                             </div>
                                         </div>
-                                        {/* askingYear tag */}
+                                        {/* modified : recently */}
                                         <div className="col">
                                             <div className="mb-3">
-                                                <input type="number" className="form-control" placeholder="Enter asking years by companies" value={post.askingYear} name='askingYear' onChange={handleInputes} />
+                                                <input type="text" className="form-control" placeholder="Modified : Recently" value={post.modified} name='modified' onChange={handleInputes} />
                                             </div>
                                         </div>
                                     </div>

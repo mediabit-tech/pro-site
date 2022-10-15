@@ -1,7 +1,12 @@
 import React from 'react';
 import "../App.css";
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+    const navigate = useNavigate();
+    function goToAdminPanel() {
+        navigate('/admin-signin');
+    }
 
     var currentTime = new Date();
     var year = currentTime.getFullYear();
@@ -13,7 +18,7 @@ const Footer = () => {
                     <div className="footer">
                         <hr />
                         <p className='main-hero-paragraph footerContent'>
-                            © {year} | All Rights Reserved | brownpaper powered by <a href="https://mediabit.in/" target='_blank' className='footer-css'>mediabit.in</a> | Made with <span style={{ color: "#3C1C0A" }}>❤</span> in India
+                            © {year} Brownpaper. All Rights Reserved.<a onClick={goToAdminPanel} style={{ cursor: "pointer" }}> <i class="fa-solid fa-gear"></i> Admin</a>
                         </p>
                         <div className='bottom-narrow-strip'></div>
                     </div>

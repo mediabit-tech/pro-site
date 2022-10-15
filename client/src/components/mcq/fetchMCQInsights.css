@@ -1,0 +1,43 @@
+.mcq-search-container {
+  margin-top: 2rem;
+}
+
+.mcq-search-card:hover {
+  box-shadow: 0;
+  transition: 0;
+  transform: none;
+}
+
+.custom-theme > div > div > h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.custom-type-mode {
+  margin: 1.5rem -0.5rem !important;
+}
+
+.custom-option > div > div > h4 {
+  margin: 0.5rem auto;
+  font-size: 2rem;
+  font-weight: lighter;
+}
+
+.solid-circle-check > h4 > i {
+  color: rgb(3, 175, 3);
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+.solid-circle-check > h4 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: 600px) {
+    
+    .custom-option > div > div > h4 {
+        margin: 0.5rem 0;
+    }
+}

@@ -11,7 +11,7 @@ const FetchPost = () => {
 
     let navigate = useNavigate();
     const params = useParams();
-    console.log(params);
+    // console.log(params);
     const [post, setPost] = useState("");
     const [posts, setPosts] = useState("");
     const [loading, setLoading] = useState(true);
@@ -60,7 +60,7 @@ const FetchPost = () => {
     useEffect(() => {
         loadSinglePost();
         loadAllPosts();
-        console.log("posts: ", posts);
+        // console.log("posts: ", posts);
     }, []);
 
     return (
@@ -105,7 +105,7 @@ const FetchPost = () => {
                                                 </div>
                                                 <div className="col lg-col-3">
                                                     <div>
-                                                        <h5><span class="badge bg-custom-one">Year</span><span class="badge bg-custom-two">{post.askingYear}</span></h5>
+                                                        <h5><span class="badge bg-custom-one">Modified</span><span class="badge bg-custom-two">{post.modified}</span></h5>
                                                     </div>
                                                 </div>
                                             </div>
