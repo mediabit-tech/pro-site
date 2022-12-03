@@ -25,9 +25,3 @@ Output:
 =======
 *****************************************************
 >>>>>>> 2eaf53d68ce4c79e3b2044a7704c66d4249a1a93
-
-Databasre for testing:
-DATABASE_URL=mongodb+srv://mediaBit-official-db:mediaBit-official-db9559@cluster0.yhkhytf.mongodb.net/?retryWrites=true&w=majority
-
-Database for official:
-DATABASE_URL=mongodb+srv://mediaBit-official-db:mediaBit-official-db9559@cluster0.yhkhytf.mongodb.net/activebpdb?retryWrites=true&w=majority
